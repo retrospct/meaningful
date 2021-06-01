@@ -1,7 +1,19 @@
 {
   "name": "meaningful",
+  "description": "Make every hour or minute meaningful, make your time spent trackable to help focus the effort within the time you do have.",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
+  "main": "build/electron/main.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postinstall": "electron-builder install-app-deps",
+    "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
+    "electron:build": "yarn build && tsc -p electron && electron-builder"
+  },
   "dependencies": {
     "@chakra-ui/react": "^1.0.0",
     "@emotion/react": "^11.0.0",
@@ -9,10 +21,14 @@
     "@testing-library/jest-dom": "^5.9.0",
     "@testing-library/react": "^10.2.1",
     "@testing-library/user-event": "^12.0.2",
+    "@types/electron-devtools-installer": "^2.2.0",
     "@types/jest": "^25.0.0",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-reload": "^1.5.0",
     "framer-motion": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,11 +37,12 @@
     "typescript": "^3.9.5",
     "web-vitals": "^0.2.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^13.0.1",
+    "electron-builder": "^22.10.5",
+    "wait-on": "^5.3.0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,5 +58,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "build": {
+    "extends": null,
+    "files": [
+      "build/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   }
 }
