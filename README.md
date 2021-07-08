@@ -15,6 +15,7 @@ Quick design and sketches - really rough... ignore the stuff on the right, just 
 ### Dev Block (30m focus - I skipped the 5m break)
 
 Setting up the project and some quick dev, I felt like I needed another pom block to get some real coding done. This was my first 1 hr challenge so hopefully I'll get better in the future.
+
 ![Meaningful - Electron](docs/assets/meaningful-electron.gif)
 
 ## Tech Stack
