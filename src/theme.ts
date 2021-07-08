@@ -18,6 +18,6 @@ const shadows = {
   glass: '0px 8px 32px hsla(236, 63%, 33%, 0.37)'
 }
 
-const theme = extendTheme({ config, colors, shadows })
+export const theme = extendTheme({ config, colors, shadows })
 
 export default theme
